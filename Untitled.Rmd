@@ -1,37 +1,28 @@
 ---
-title: "Dygraphs Linked Time Series"
-output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    social: menu
-    source_code: embed
+title: "Untitled"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(dygraphs)
-library(quantmod)
-library(flexdashboard)
-
-getSymbols(c("MSFT", "HPQ", "INTC"), from = "2014-01-01", auto.assign=TRUE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Microsoft
+## R Markdown
 
-```{r}
-dygraph(MSFT[,2:4], group = "stocks") %>% 
-  dySeries(c("MSFT.Low", "MSFT.Close", "MSFT.High"), label = "MSFT")
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
 ```
 
-### HP
+## Including Plots
 
-```{r}
-dygraph(HPQ[,2:4], group = "stocks") %>% 
-  dySeries(c("HPQ.Low", "HPQ.Close", "HPQ.High"), label = "HPQ")
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
 ```
 
-### Intel
-
-```{r}
-dygraph(INTC[,2:4], group = "stocks") %>% 
-  dySeries(c("INTC.Low", "INTC.Close", "INTC.High"), label = "INTC")
-```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
